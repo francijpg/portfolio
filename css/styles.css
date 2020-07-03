@@ -74,6 +74,9 @@ p {
   margin-top: 0;
   margin-bottom: 1rem; }
 
+.p-justify {
+  text-align: justify;
+}
 abbr[title],
 abbr[data-original-title] {
   text-decoration: underline;
