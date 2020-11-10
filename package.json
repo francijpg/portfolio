@@ -38,7 +38,6 @@
     "gatsby"
   ],
   "license": "0BSD",
-  "homepage": "",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby clean && gatsby develop",
@@ -46,8 +45,7 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "deploy": "gatsby build && gh-pages -d public -b master"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "repository": {
     "type": "git",
