@@ -23,7 +23,6 @@
     "gatsby-source-filesystem": "^2.3.32",
     "gatsby-source-strapi": "0.0.12",
     "gatsby-transformer-sharp": "^2.5.16",
-    "gh-pages": "^3.1.0",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
@@ -32,12 +31,14 @@
     "react-scroll": "^1.8.1"
   },
   "devDependencies": {
+    "gh-pages": "^3.1.0",
     "prettier": "2.1.2"
   },
   "keywords": [
     "gatsby"
   ],
   "license": "0BSD",
+  "homepage": "",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby clean && gatsby develop",
@@ -45,7 +46,8 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "deploy": "gatsby build && gh-pages -d public -b master"
   },
   "repository": {
     "type": "git",
