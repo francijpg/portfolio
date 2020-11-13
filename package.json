@@ -31,7 +31,6 @@
     "react-scroll": "^1.8.1"
   },
   "devDependencies": {
-    "gh-pages": "^3.1.0",
     "prettier": "2.1.2"
   },
   "keywords": [
