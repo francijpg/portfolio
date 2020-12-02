@@ -142,6 +142,9 @@ p {
   margin: 0 auto;
   margin-top: 3rem;
 }
+.mt-2 {
+  margin-top: 2rem;
+}
 
 /* sections */
 .section {
@@ -431,14 +434,52 @@ About
 }
 .about-title {
   color: var(--color-white);
-  font-size: 16px;
+  font-size: 25px;
   font-weight: bold;
   letter-spacing: var(--spacing);
   text-transform: uppercase;
   margin-bottom: 16px;
 }
+.typewriter {
+  font-weight: normal;
+  text-transform: none;
+  line-height: 1.5;
+  font-size: 20px;
+}
+
 .about .about-icon {
   font-size: var(--emoji-size);
+  animation-name: wave-animation; /* Refers to the name of your @keyframes element below */
+  animation-duration: 1.5s; /* Change to speed up or slow down */
+  animation-iteration-count: infinite; /* Never stop waving :) */
+  transform-origin: 70% 70%; /* Pivot around the bottom-left palm */
+  display: inline-block;
+}
+@keyframes wave-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(14deg);
+  } /* The following five values can be played with to make the waving more or less extreme */
+  20% {
+    transform: rotate(-8deg);
+  }
+  30% {
+    transform: rotate(14deg);
+  }
+  40% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  60% {
+    transform: rotate(0deg);
+  } /* Reset for the last half to pause */
+  100% {
+    transform: rotate(0deg);
+  }
 }
 .about .btn {
   margin-top: 1.25rem;
@@ -674,9 +715,6 @@ Projects
   letter-spacing: 2px;
   font-size: 12px;
 }
-.about-stack span {
-  margin-top: 0.5rem;
-}
 .project-icon {
   color: var(--color-dark);
   font-size: 2rem;
@@ -764,7 +802,7 @@ Certificates
   color: var(--color-white);
   cursor: pointer;
 }
-.certificate-filter{
+.certificate-filter {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -894,7 +932,6 @@ Footer
     padding: 10px;
     width: 100%;
   }
-  
 }
 @media screen and (max-width: 820px) {
   .footer-links-container {
@@ -962,6 +999,7 @@ About Page
   line-height: 2;
   font-size: 16px;
   color: var(--color-dark);
+  /* margin-top: 2rem; */
 }
 .about-contact {
   margin: 20px auto;
