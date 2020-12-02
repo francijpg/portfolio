@@ -17,8 +17,7 @@ const data = [
   {
     id: 2,
     icon: <FaLinkedin className="social-icon"></FaLinkedin>,
-    url:
-      "https://www.linkedin.com/in/francisco-javier-plaza-gonz%C3%A1lez-82b68a172",
+    url: "https://www.linkedin.com/in/francijpg",
     ariaLabel: "linkedin",
   },
   {
