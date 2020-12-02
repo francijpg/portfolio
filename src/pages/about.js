@@ -23,15 +23,15 @@ const About = ({
           <Image fluid={image.childImageSharp.fluid} className="about-img" />
           <article className="about-text">
             <p>{info}</p>
-            <p>{info2}</p>
-            <Link to="/contact" className="btn about-contact">
-              contact me
-            </Link>
             <div className="about-stack">
               {stack.map(item => {
                 return <span key={item.id}>{item.title}</span>
               })}
             </div>
+            <p className="mt-2">{info2}</p>
+            <Link to="/contact" className="btn about-contact">
+              contact me
+            </Link>
             <SocialLinks />
           </article>
         </div>
