@@ -43,12 +43,13 @@ const About = () => {
                 <span role="img" aria-label="hand" className="about-icon">
                   👋🏻
                 </span>{" "}
+                <TypingStep
+                  sequence={sequence}
+                  styleClass="typewriter"
+                  typeSpeed={80}
+                  element="h2"
+                />
               </div>
-              <TypingStep
-                sequence={sequence}
-                styleClass="typewriter"
-                typeSpeed={80}
-              />
               <Link to="/about" className="btn">
                 Continue reading…
               </Link>
