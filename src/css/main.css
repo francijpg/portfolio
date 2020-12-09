@@ -1049,23 +1049,38 @@ Contact Page
 .form-group {
   padding: 1rem 1.5rem;
 }
+.form-group textarea{
+  resize: none;
+}
 .form-control {
   display: block;
   width: 100%;
   padding: 0.75rem 1rem;
   border: none;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
   background: var(--color-white-grey);
   border-radius: var(--radius-card);
   text-transform: uppercase;
-  letter-spacing: var(--spacing);
+  font-size: 16px;
+  font-family: var(--ff-primary);
   outline: none;
 }
 .form-control::placeholder {
   font-family: var(--ff-primary);
   color: var(--color-blue);
+  font-weight: bold;
   text-transform: uppercase;
-  letter-spacing: var(--spacing);
+}
+.contact-form-error {
+  background-color: #e4a9a5;
+  border-radius: var(--radius);
+  margin-bottom: 40px;
+}
+.contact-form-error p {
+  color: #da0f00;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 5px;
 }
 .submit-btn {
   display: block;
@@ -1079,4 +1094,35 @@ Contact Page
 }
 .submit-btn:hover {
   color: var(--color-blue);
+}
+
+.modal-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+}
+.alert {
+  position: relative;
+  width: 300px;
+  padding: 10px 20px;
+  margin: 20% auto;
+  background-color: var(--color-white);
+  border-radius: 15px;
+  font-size: 20px;
+}
+.alert-ok {
+  background-color: rgb(53, 167, 53);
+  color: var(--color-white);
+}
+.alert-info {
+  background-color: rgb(37, 109, 190);
+  color: var(--color-white);
+}
+.alert-error {
+  background-color: rgb(230, 78, 78);
+  color: var(--color-white);
 }
