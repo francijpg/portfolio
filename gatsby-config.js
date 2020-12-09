@@ -41,10 +41,11 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-fonts`,
+      resolve: "gatsby-plugin-web-font-loader",
       options: {
-        fonts: [`Encode Sans Expanded\:400,700`, `Open Sans`],
-        display: "swap",
+        google: {
+          families: ["Encode Sans Expanded:400,700", "Open Sans"],
+        },
       },
     },
     {
