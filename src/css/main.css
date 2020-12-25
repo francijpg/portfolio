@@ -1068,8 +1068,6 @@ Contact Page
 .form-control::placeholder {
   font-family: var(--ff-primary);
   color: var(--color-blue);
-  font-weight: bold;
-  text-transform: uppercase;
 }
 .contact-form-error {
   background-color: #e4a9a5;
