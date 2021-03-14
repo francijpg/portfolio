@@ -3,7 +3,6 @@ import {
   FaLinkedin,
   FaDocker,
   FaGithubSquare,
-  FaEnvelope,
   FaMedium,
   FaTwitter
 } from "react-icons/fa"
