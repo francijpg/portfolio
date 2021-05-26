@@ -11,6 +11,6 @@ export default [
     id: 2,
     icon: <FaAndroid className="service-icon" />,
     title: "mobile application development ",
-    text: `Coming soon...`,
+    text: `Mobile application development for iOS and Android devices.`,
   },
 ]
