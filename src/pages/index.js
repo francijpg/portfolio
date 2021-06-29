@@ -9,14 +9,13 @@ import Services from "../components/Services"
 import SEO from "../components/SEO"
 
 export default ({ data }) => {
-  // console.log(data)
 
   const {
     allStrapiProjects: { nodes: projects },
   } = data
 
   return (
-    <Layout>
+    <Layout scrollEffect={true}>
       <SEO title="Home" description="home page" />
       <Hero />
       <About />

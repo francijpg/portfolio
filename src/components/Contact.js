@@ -3,8 +3,9 @@ import axios from "axios"
 import { useFormik } from "formik"
 import * as Yup from "yup"
 import Alert from "../components/Alert"
+import Title from "../components/Title"
 
-const Contact = () => {
+const Contact = ({ title }) => {
   const key = process.env.FORMSPREE_FORM_KEY
   const externalProviderUrl = `https://formspree.io/f/${key}`
   const okMsg =
@@ -56,6 +57,7 @@ const Contact = () => {
 
   return (
     <section className="contact-page">
+      <Title title={title} />
       <article className="contact-form">
         <h3>get in touch</h3>
         <form onSubmit={formik.handleSubmit}>
@@ -95,7 +97,7 @@ const Contact = () => {
             <textarea
               name="message"
               rows="10"
-              placeholder="Your message here"
+              placeholder="Your message"
               className="form-control"
               value={formik.values.message}
               onChange={formik.handleChange}
