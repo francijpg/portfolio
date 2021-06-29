@@ -4,27 +4,30 @@ import Sidebar from "./Sidebar"
 import Footer from "./Footer"
 
 const Layout = ({ scrollEffect = false, children }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
+  const isBrowser = typeof window !== "undefined"
 
   useEffect(() => {
     if (scrollEffect) {
-      setIsScrolled(false);
+      setIsScrolled(false)
     } else {
-      setIsScrolled(true);
+      setIsScrolled(true)
     }
   }, [scrollEffect])
 
   const toggleSidebar = () => {
-    setIsOpen(!isOpen);
+    setIsOpen(!isOpen)
   }
 
-  window.onscroll = () => {
-    if (scrollEffect) {
-      setIsScrolled(window.pageYOffset === 0 ? false : true);
-      return () => (window.onscroll = null);
+  if (isBrowser) {
+    window.onscroll = () => {
+      if (scrollEffect) {
+        setIsScrolled(window.pageYOffset === 0 ? false : true)
+        return () => (window.onscroll = null)
+      }
     }
-  };
+  }
 
   return (
     <>
