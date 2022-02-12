@@ -35,7 +35,7 @@ const Footer = () => {
             </button>
             <div className="footer-row-rights">
               <h4>
-                &copy;{new Date().getFullYear()}
+                &copy;2020-{new Date().getFullYear()}
                 <span> Francisco P.G.</span> All rights reserved. Built with
                 {` `}
                 <a
