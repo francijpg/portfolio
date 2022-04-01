@@ -20,7 +20,7 @@ const query = graphql`
   }
 `
 
-const Jobs = () => {
+const Jobs = (bg) => {
   const data = useStaticQuery(query)
   const {
     allStrapiJobs: { nodes: jobs },
@@ -29,7 +29,7 @@ const Jobs = () => {
   const { company, position, date, desc } = jobs[value]
 
   return (
-    <section className="section bg-grey">
+    <section className={`section ${bg && "bg-main"}`}>
       <Title title="experience" />
       <div className="jobs-center">
         <div className="btn-container">

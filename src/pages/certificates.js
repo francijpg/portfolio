@@ -12,7 +12,7 @@ const CertificatesPage = ({
   return (
     <Layout>
       <SEO title="Certificates" />
-      <section className="projects-page">
+      <section className="certificates-page">
         <Certificates certificates={certificates} title="all certificates" />
       </section>
     </Layout>
