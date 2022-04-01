@@ -5,7 +5,6 @@ import ReactMarkdown from "react-markdown"
 
 const ComponentName = ({ data }) => {
   const { content } = data.blog
-  console.log(data)
   return (
     <Layout>
       <section className="blog-template">
