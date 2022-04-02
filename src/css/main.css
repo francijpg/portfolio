@@ -1174,6 +1174,7 @@ Blog Template
 }
 .blog-template ol {
   padding: 0 3rem;
+  color: var(--clr-grey-3);
 }
 
 .blog-template blockquote {
@@ -1190,6 +1191,19 @@ Blog Template
   overflow-x: scroll;
   padding: 1rem 1.5rem;
   border-radius: var(--radius-card);
+}
+
+.blog-template li strong,
+.blog-template p strong {
+  font-weight: bold;
+  color: var(--clr-grey-1);
+  background-color: var(--clr-grey-9);
+  font-size: 1.1rem;
+}
+.blog-template li a {
+  font-weight: bold;
+  color: var(--color-blue);
+  font-size: 1.2rem;
 }
 .blog-template img {
   width: 40rem;
