@@ -1206,11 +1206,11 @@ Blog Template
   font-size: 1.2rem;
 }
 .blog-template img {
-  width: 40rem;
-  height: 25rem;
+  max-width: var(--max-width);
   display: block;
   margin-top: 1rem;
   margin-left: auto;
   margin-right: auto;
-  width: 80%;
+  border-radius: var(--radius-card);
+  width: 70%;
 }
