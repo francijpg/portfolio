@@ -1156,7 +1156,11 @@ Blog Template
 .blog-template h2 {
   text-align: center;
 }
+.blog-template h1 {
+  font-size: 3rem;
+}
 .blog-template h2 {
+  font-size: 2rem;
   margin-top: 3rem;
   margin-bottom: 2rem;
 }
