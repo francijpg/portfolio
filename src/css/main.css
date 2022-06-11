@@ -1165,6 +1165,15 @@ Blog Template
   margin-bottom: 2rem;
 }
 
+@media screen and (max-width: 720px) {
+  .blog-template h1 {
+    font-size: 2rem;
+  }
+  .blog-template h2 {
+    font-size: 1rem;
+  }
+}
+
 .blog-template ul {
   margin-top: 2rem;
   display: inline-block;
