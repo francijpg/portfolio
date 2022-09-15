@@ -420,15 +420,59 @@ About
 Services
 ===============
 */
+.services-center {
+  display: flex;
+  justify-content: center;
+}
 .service {
   background: var(--color-dark);
-  padding: 3rem 1.5rem;
-  margin: 1rem;
   border-radius: var(--radius);
+  padding: 2rem;
   text-align: center;
   -webkit-transition: var(--transition);
   transition: var(--transition);
-  border: var(--color-blue) solid;
+  position: absolute;
+  inset: 5px;
+  z-index: 1;
+}
+.border-animation {
+  position: relative;
+  width: 400px;
+  height: 300px;
+  background: rgba(0, 0, 0, 0.75);
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  margin: 0.5rem;
+}
+.border-animation::before {
+  content: "";
+  position: absolute;
+  width: 650px;
+  height: 650px;
+  background-image: conic-gradient(
+    transparent,
+    transparent,
+    transparent,
+    var(--color-blue)
+  );
+  animation: animateBorder 4s linear infinite;
+}
+.border-animation::after {
+  content: "";
+  position: absolute;
+  width: 650px;
+  height: 650px;
+  background-image: conic-gradient(
+    transparent,
+    transparent,
+    transparent,
+    var(--color-white)
+  );
+  animation: animateBorder 4s linear infinite;
+  animation-delay: -2s;
 }
 .service-icon {
   font-size: 2rem;
@@ -450,26 +494,18 @@ Services
   transition: var(--transition);
   color: var(--color-white);
 }
-/* .service:hover {
-  background: var(--color-blue);
-}
-.service:hover p {
-  color: var(--color-white);
-}
-.service:hover h4 {
-  color: var(--color-white);
-}
-.service:hover .underline {
-  background: var(--color-white);
-} */
-
-@media screen and (min-width: 676px) {
-  .services-center {
-    display: flex;
-    justify-content: center;
+@keyframes animateBorder {
+  0% {
+    transform: rotate(0deg);
   }
-  .services-center > * {
-    flex: 0 50%;
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@media screen and (max-width: 650px) {
+  .services-center {
+    flex-direction: column;
+    align-items: center;
   }
 }
 
@@ -641,8 +677,7 @@ Projects
   transition: var(--transition);
   border-radius: 30%;
   padding: 0.2rem;
-  color: drop-shadow(0 20px 10px rgba(0, 0, 0, 0.5));
-  animation: animateBgColor 3s linear infinite;
+  animation: animateBgColor 2s linear infinite;
 }
 @keyframes animateBgColor {
   0% {
