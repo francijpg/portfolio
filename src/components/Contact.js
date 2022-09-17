@@ -56,68 +56,70 @@ const Contact = ({ title }) => {
   })
 
   return (
-    <section className="contact-page">
+    <section className="section">
       <Title title={title} />
-      <article className="contact-form">
-        <h3>get in touch</h3>
-        <form onSubmit={formik.handleSubmit}>
-          <div className="form-group">
-            <input
-              type="text"
-              name="name"
-              placeholder="Your name"
-              className="form-control"
-              value={formik.values.name}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-            />
+      <div className="content-center">
+        <article className="contact-form">
+          <h3>get in touch</h3>
+          <form onSubmit={formik.handleSubmit}>
+            <div className="form-group">
+              <input
+                type="text"
+                name="name"
+                placeholder="Your name"
+                className="form-control"
+                value={formik.values.name}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+              />
 
-            {formik.touched.name && formik.errors.name ? (
-              <div className="contact-form-error">
-                <p>{formik.errors.name} </p>
-              </div>
-            ) : null}
+              {formik.touched.name && formik.errors.name ? (
+                <div className="contact-form-error">
+                  <p>{formik.errors.name} </p>
+                </div>
+              ) : null}
 
-            <input
-              type="email"
-              placeholder="Your email"
-              name="email"
-              className="form-control"
-              value={formik.values.email}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-            />
+              <input
+                type="email"
+                placeholder="Your email"
+                name="email"
+                className="form-control"
+                value={formik.values.email}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+              />
 
-            {formik.touched.email && formik.errors.email ? (
-              <div className="contact-form-error">
-                <p>{formik.errors.email} </p>
-              </div>
-            ) : null}
+              {formik.touched.email && formik.errors.email ? (
+                <div className="contact-form-error">
+                  <p>{formik.errors.email} </p>
+                </div>
+              ) : null}
 
-            <textarea
-              name="message"
-              rows="10"
-              placeholder="Your message"
-              className="form-control"
-              value={formik.values.message}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-            ></textarea>
+              <textarea
+                name="message"
+                rows="10"
+                placeholder="Your message"
+                className="form-control"
+                value={formik.values.message}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+              ></textarea>
 
-            {formik.touched.message && formik.errors.message ? (
-              <div className="contact-form-error">
-                <p>{formik.errors.message} </p>
-              </div>
-            ) : null}
-          </div>
+              {formik.touched.message && formik.errors.message ? (
+                <div className="contact-form-error">
+                  <p>{formik.errors.message} </p>
+                </div>
+              ) : null}
+            </div>
 
-          <button type="submit" className="submit-btn btn">
-            submit here
-          </button>
+            <button type="submit" className="submit-btn btn">
+              submit here
+            </button>
 
-          {serverState && <Alert alert={serverState} />}
-        </form>
-      </article>
+            {serverState && <Alert alert={serverState} />}
+          </form>
+        </article>
+      </div>
     </section>
   )
 }

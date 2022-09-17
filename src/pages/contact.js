@@ -7,7 +7,9 @@ const contact = () => {
   return (
     <Layout>
       <SEO title="Contact" />
-      <Contact title="contact" />
+      <section className="contact-page">
+        <Contact title="contact" />
+      </section>
     </Layout>
   )
 }
