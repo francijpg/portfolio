@@ -23,7 +23,7 @@
     "gatsby-plugin-sitemap": "^2.5.0",
     "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-source-filesystem": "^2.7.0",
-    "gatsby-source-strapi": "0.0.12",
+    "gatsby-source-strapi": "3.0.2",
     "gatsby-transformer-sharp": "^2.5.16",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
