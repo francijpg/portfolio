@@ -32,6 +32,7 @@
     "react-icons": "^3.11.0",
     "react-markdown": "^8.0.1",
     "react-scroll": "^1.8.1",
+    "remark-gfm": "^3.0.1",
     "typing-effect-reactjs": "^1.4.1",
     "yup": "^0.31.1"
   },
