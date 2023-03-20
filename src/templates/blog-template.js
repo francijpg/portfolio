@@ -2,6 +2,7 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 import Layout from "../components/Layout"
 import ReactMarkdown from "react-markdown"
+import remarkGfm from 'remark-gfm'
 
 const ComponentName = ({ data }) => {
   const { content } = data.blog
@@ -10,7 +11,7 @@ const ComponentName = ({ data }) => {
       <section className="blog-template">
         <div className="section-center">
           <article>
-            <ReactMarkdown children={content} />
+            <ReactMarkdown children={content} remarkPlugins={[remarkGfm]} />
           </article>
           <Link to="/blog" className="btn center-btn">
             blog
