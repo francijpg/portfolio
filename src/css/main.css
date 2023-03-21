@@ -110,6 +110,22 @@ p {
     line-height: 1;
   }
 }
+table {
+  border-collapse: collapse;
+  margin-left: auto; 
+  margin-right: auto;
+}
+table, th, td {
+  border: 0.1rem solid black;
+}
+th, td {
+  padding: 0.5rem;
+}
+thead {
+  background-color: var(--color-blue);
+  color: var(--color-white);
+}
+
 /*  global classes */
 
 .btn {
@@ -1211,19 +1227,21 @@ Blog Template
 }
 
 .blog-template ul {
-  margin-top: 2rem;
   display: inline-block;
 }
 .blog-template ul li {
   background: var(--clr-grey-9);
   color: var(--clr-grey-5);
   padding: 0.5rem 1rem;
-  margin: 1rem 0;
-  text-transform: uppercase;
+  margin: 0.5rem 0;
 }
 .blog-template ol {
   padding: 0 3rem;
   color: var(--clr-grey-3);
+}
+
+.blog-template ol li {
+  margin: 0.5rem 0;
 }
 
 .blog-template blockquote {
@@ -1245,14 +1263,18 @@ Blog Template
 .blog-template li strong,
 .blog-template p strong {
   font-weight: bold;
+  font-size: 1.1rem;
   color: var(--clr-grey-1);
   background-color: var(--clr-grey-9);
-  font-size: 1.1rem;
+}
+.blog-template p strong a {
+  color: var(--color-blue);
+  background-color: var(--clr-grey-10);
 }
 .blog-template li a {
   font-weight: bold;
   color: var(--color-blue);
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 .blog-template img {
   max-width: var(--max-width);
