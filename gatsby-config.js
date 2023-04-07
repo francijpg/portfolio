@@ -10,6 +10,7 @@ module.exports = {
     twitterUsername: "@francijpg",
     image: "/twitter-img.png",
     siteUrl: "https://www.francijpg.com",
+    keywords: 'technology, software, engineering, typescript, react, aws'
   },
   plugins: [
     `gatsby-transformer-sharp`,
@@ -18,6 +19,7 @@ module.exports = {
     `gatsby-plugin-emotion`,
     `gatsby-plugin-fontawesome-css`,
     `gatsby-plugin-sitemap`,
+    `gatsby-plugin-dark-mode`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {

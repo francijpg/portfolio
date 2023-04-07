@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
+import ThemeToggler from "../components/ThemeToggler"
 
 const data = [
   {
@@ -39,8 +40,11 @@ const tempLinks = data.map(link => {
 
 export default ({ styleClass }) => {
   return (
-    <ul className={`${styleClass ? styleClass : ""}`}>
-      {tempLinks}
-    </ul>
+    <>
+      <ul className={`${styleClass ? styleClass : ""}`}>
+      <ThemeToggler />
+        {tempLinks}
+      </ul>
+    </>
   )
 }
