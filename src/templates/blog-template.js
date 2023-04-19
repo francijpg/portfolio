@@ -11,7 +11,7 @@ const ComponentName = ({ data }) => {
       <section className="blog-template">
         <div className="section-center">
           <article>
-            <ReactMarkdown children={content} remarkPlugins={[remarkGfm]} />
+            <ReactMarkdown children={content} remarkPlugins={[remarkGfm]} linkTarget={'_blank'} />
           </article>
           <Link to="/blog" className="btn center-btn">
             blog
