@@ -33,6 +33,7 @@ Variables
   --fixed-width: 700px;
   --emoji-size: 30px;
   --bg-dark: #141518;
+  --toggle-sun: rgb(248, 157, 10);
 }
 
 /*
@@ -55,22 +56,6 @@ body {
   line-height: 1.5;
   font-size: 0.875rem;
 }
-body.dark {
-  background-color: var(--bg-dark);
-  color: var(--color-white);
-}
-body.dark,
-ol,
-li, 
-p, 
-strong {
-  color: var(--color-white);
-}
-/* body.dark,
-body.dark a {
-  background-color: #333;
-  color: white;
-} */
 ul {
   list-style-type: none;
 }
@@ -102,8 +87,76 @@ h4 {
 }
 p {
   margin-bottom: 1.25rem;
-  color: var(--clr-grey-3);
 }
+
+/*
+=============== 
+Dark Mode Styles
+===============
+*/
+body.dark {
+  background-color: var(--bg-dark);
+  color: var(--color-white);
+}
+body.dark .social-link {
+  color: var(--color-white);
+}
+body.dark .social-link:hover {
+  color: var(--color-blue);
+}
+body.dark .sidebar {
+  background: var(--color-dark);
+}
+body.dark .sidebar-links li a {
+  color: var(--color-white);
+}
+body.dark .sidebar-links li a:hover {
+  color: var(--color-white);
+}
+body.dark .close-btn:hover {
+  color: var(--color-white);
+}
+body.dark .service {
+  background: var(--color-dark);
+}
+body.dark .service-icon {
+  color: var(--color-white);
+}
+body.dark .service h3 p {
+  color: var(--color-white);
+}
+body.dark .job-btn {
+  color: var(--color-white);
+}
+body.dark .footer {
+  color: var(--color-white);
+  background-color: var(--bg-dark);
+}
+body.dark .footer-link li a {
+  color: var(--color-white);
+}
+body.dark .footer-link li a:hover {
+  color: var(--color-blue);
+}
+body.dark .footer-row-logo {
+  color: var(--color-white);
+}
+body.dark .footer-row-rights h4 {
+  color: var(--color-white);
+}
+body.dark .footer-gatsby {
+  color: var(--color-white);
+}
+body.dark .error-page {
+  background-color: var(--bg-dark);
+}
+body.dark .error-page h1 {
+  color: var(--color-white);
+}
+body.dark .project-info {
+  background-color: var(--clr-grey-9);
+}
+
 @media screen and (min-width: 800px) {
   h1 {
     font-size: 4rem;
@@ -140,10 +193,6 @@ td {
 th,
 td {
   padding: 0.5rem;
-}
-thead {
-  background-color: var(--color-blue);
-  color: var(--color-white);
 }
 
 /*  global classes */
@@ -226,7 +275,7 @@ thead {
 }
 .social-link {
   font-size: 2rem;
-  color: var(--color-white);
+  color: var(--color-dark);
   transition: var(--transition);
 }
 .social-link:hover {
@@ -239,7 +288,7 @@ Sidebar
 ===============
 */
 .sidebar {
-  background: var(--color-dark);
+  background: var(--clr-grey-10);
   position: fixed;
   top: 0;
   left: 0;
@@ -263,7 +312,7 @@ Sidebar
   display: block;
   text-align: center;
   text-transform: capitalize;
-  color: var(--color-white);
+  color: var(--color-dark);
   letter-spacing: var(--spacing);
   margin-bottom: 0.5rem;
   font-size: 2rem;
@@ -287,7 +336,7 @@ Sidebar
   outline-width: 0px;
 }
 .close-btn:hover {
-  color: var(--color-white);
+  color: var(--color-dark);
 }
 @media screen and (min-width: 992px) {
   .sidebar {
@@ -365,10 +414,6 @@ Sidebar Animation
 About
 ===============
 */
-.about {
-  /* background-color: var(--color-dark); */
-  color: var(--color-white);
-}
 .about-container {
   max-width: var(--max-width);
   margin: 0 auto;
@@ -387,7 +432,6 @@ About
   margin-left: 0;
 }
 .about-title {
-  color: var(--color-white);
   font-size: 25px;
   font-weight: bold;
   letter-spacing: var(--spacing);
@@ -461,7 +505,7 @@ Services
   justify-content: center;
 }
 .service {
-  background: var(--color-dark);
+  background: var(--clr-grey-9);
   border-radius: var(--radius);
   padding: 2rem;
   text-align: center;
@@ -513,7 +557,6 @@ Services
 .service-icon {
   font-size: 2rem;
   margin-bottom: 1.5rem;
-  color: var(--color-white);
 }
 .service .underline {
   width: 3rem;
@@ -522,13 +565,11 @@ Services
   transition: var(--transition);
 }
 .service h3 {
-  color: var(--color-white);
   font-size: 20px;
 }
 .service p {
   -webkit-transition: var(--transition);
   transition: var(--transition);
-  color: var(--color-white);
 }
 @keyframes animateBorder {
   0% {
@@ -563,6 +604,7 @@ Jobs
   overflow: auto;
 }
 .job-btn {
+  color: var(--bg-dark);
   background: transparent;
   border-color: transparent;
   text-transform: capitalize;
@@ -583,16 +625,6 @@ Jobs
   color: var(--color-blue);
   box-shadow: 0 2px var(--color-blue);
 }
-.job-info h3 {
-  font-weight: 400;
-}
-.job-info h4 {
-  text-transform: uppercase;
-  color: var(--clr-grey-3);
-  display: inline-block;
-  padding: 0.375rem 0.75rem;
-  border-radius: var(--radius);
-}
 .job-date {
   letter-spacing: var(--spacing);
 }
@@ -605,7 +637,6 @@ Jobs
 }
 .job-desc p {
   margin-bottom: 0;
-  color: var(--clr-grey-3);
 }
 .job-icon {
   color: var(--color-blue);
@@ -670,7 +701,7 @@ Projects
   opacity: 0;
 }
 .project-info {
-  background: var(--color-white);
+  background: var(--clr-grey-10);
   padding: 1rem 2rem;
   border-bottom-left-radius: var(--radius);
   border-bottom-right-radius: var(--radius);
@@ -788,7 +819,7 @@ Certificates
   border: 1px solid transparent;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   border-radius: var(--radius-card);
-  background: var(--clr-grey-10);
+  background-color: var(--clr-grey-10);
   margin-top: 10px;
   outline: 0;
 }
@@ -799,15 +830,13 @@ Certificates
 }
 .certificate-content {
   padding: 2rem;
-  color: var(--color-dark);
 }
 .certificate-content h3 {
   font-size: 12px;
 }
-
 .certificate-card:hover {
-  background: var(--color-blue);
   color: var(--color-white);
+  background-color: var(--color-blue);
   cursor: pointer;
 }
 .certificate-filter {
@@ -844,7 +873,7 @@ Blog
 .blog {
   display: block;
   margin-bottom: 2rem;
-  background: var(--clr-grey-10);
+  background-color: var(--clr-grey-10);
   border-radius: var(--radius);
   box-shadow: var(--light-shadow);
   transition: var(--transition);
@@ -873,7 +902,9 @@ Blog
 .blog-card h4 {
   color: var(--clr-grey-1);
 }
-
+.blog-card p {
+  color: var(--clr-grey-3);
+}
 .blog-footer {
   display: flex;
   justify-content: space-between;
@@ -917,8 +948,8 @@ Footer
 ===============
 */
 .footer {
-  /* background: var(--color-dark); */
-  color: var(--color-white);
+  background: var(--clr-grey-9);
+  color: var(--color-dark);
 }
 .footer-wrap {
   display: flex;
@@ -945,11 +976,12 @@ Footer
   display: block;
   text-align: center;
   text-transform: capitalize;
-  color: var(--color-white);
+  color: var(--color-blue);
+  font-weight: bold;
   margin-bottom: 0.5rem;
 }
 .footer-link li a:hover {
-  color: var(--color-blue);
+  color: var(--color-dark);
 }
 .footer-link-title {
   margin-bottom: 12px;
@@ -983,7 +1015,7 @@ Footer
   font-weight: bold;
   font-size: 1.5rem;
   font-family: var(--ff-primary);
-  color: var(--color-white);
+  color: var(--color-dark);
   outline-width: 0px;
   background: transparent;
   border-color: transparent;
@@ -998,12 +1030,12 @@ Footer
   text-align: center;
 }
 .footer-row-rights h4 {
-  color: var(--color-white);
+  color: var(--color-dark);
   font-size: 12px;
   font-weight: normal;
 }
 .footer-gatsby {
-  color: var(--color-white);
+  color: var(--color-blue);
   font-weight: bold;
 }
 .footer .social-link {
@@ -1044,14 +1076,13 @@ Pages
 .error-page,
 .about-page,
 .contact-page {
-  /* background: var(--clr-grey-10); */
   min-height: calc(100vh - 5rem - 9rem);
   margin-top: 5rem;
 }
 .error-page {
   display: grid;
   place-items: center;
-  background: var(--color-white);
+  background: var(--clr-grey-10);
   text-align: center;
 }
 .error-page h1 {
@@ -1062,22 +1093,12 @@ Pages
 .error-page .btn {
   margin: 5px;
 }
-/*
-===============
-Blog Page
-===============
-*/
-/* .blog-page .blog {
-  background: var(--color-white);
-} */
+
 /*
 ===============
 About Page
 ===============
 */
-/* .about-page {
-  background-color: var(--color-white);
-} */
 .about-center {
   display: grid;
   grid-template-columns: 1fr 2fr;
@@ -1091,8 +1112,6 @@ About Page
 .about-text p {
   line-height: 2;
   font-size: 16px;
-  color: var(--color-dark);
-  /* margin-top: 2rem; */
 }
 .about-contact {
   margin: 20px auto;
@@ -1124,7 +1143,7 @@ Contact Page
   justify-content: center;
 }
 .contact-form {
-  background: var(--color-blue);
+  background-color: var(--color-blue);
   border-radius: var(--radius-card);
   text-align: center;
   box-shadow: var(--dark-shadow);
@@ -1160,7 +1179,6 @@ Contact Page
 }
 .form-control::placeholder {
   font-family: var(--ff-primary);
-  /* color: var(--color-blue); */
 }
 .contact-form-error {
   background-color: #e4a9a5;
@@ -1254,25 +1272,23 @@ Blog Template
 }
 .blog-template ul li {
   background: var(--clr-grey-9);
-  color: var(--clr-grey-5);
+  color: var(--clr-grey-1);
   padding: 0.5rem 1rem;
   margin: 0.5rem 0;
+  border-radius: var(--radius-card);
 }
 .blog-template ol {
   padding: 0 3rem;
-  color: var(--clr-grey-3);
 }
-
 .blog-template ol li {
   margin: 0.5rem 0;
 }
-
 .blog-template blockquote {
   background: var(--clr-grey-9);
   border-radius: var(--radius-card);
   padding: 1rem;
   line-height: 2;
-  color: var(--clr-grey-3);
+  color: var(--clr-grey-1);
   margin: 2rem 0;
 }
 .blog-template pre {
@@ -1286,13 +1302,13 @@ Blog Template
 .blog-template li strong,
 .blog-template p strong {
   font-weight: bold;
-  font-size: 1.1rem;
   color: var(--clr-grey-1);
   background-color: var(--clr-grey-9);
 }
-.blog-template p strong a {
+.blog-template p a {
+  font-weight: bold;
   color: var(--color-blue);
-  background-color: var(--clr-grey-10);
+  font-size: 1.1rem;
 }
 .blog-template li a {
   font-weight: bold;
@@ -1309,10 +1325,30 @@ Blog Template
   width: 70%;
 }
 
-.theme-toggle.react-toggle.react-toggle--checked .react-toggle-track {
-  background-color: blue;
+/* Dark Mode Toggle */
+.dm-icon-toggle {
+  color: var(--color-white);
+  margin-top: -3px;
+  margin-left: -2px;
 }
-
+.theme-toggle {
+  margin: 1rem;
+}
+.react-toggle--checked .react-toggle-thumb {
+  border: none;
+}
+.react-toggle .react-toggle-thumb {
+  border: none;
+}
+.theme-toggle.react-toggle.react-toggle .react-toggle-track {
+  background-color: var(--toggle-sun);
+}
+.theme-toggle.react-toggle.react-toggle:hover .react-toggle-track {
+  background-color: var(--color-blue);
+}
+.theme-toggle.react-toggle.react-toggle--checked .react-toggle-track {
+  background-color: var(--color-blue);
+}
 .theme-toggle.react-toggle.react-toggle--checked:hover .react-toggle-track {
-  background-color: white;
+  background-color: var(--toggle-sun);
 }

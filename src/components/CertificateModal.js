@@ -19,7 +19,8 @@ const ModalWrapper = styled.div`
   left: 20px;
   right: 20px;
   bottom: 20px;
-  background-color: var(--color-white);
+  background-color: var(--clr-grey-10);
+  color: var(--color-dark);
   border-radius: var(--radius-card);
   z-index: 1000;
   overflow-y: auto;
