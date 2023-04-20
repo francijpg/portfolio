@@ -1,8 +1,9 @@
-import React, { useState } from "react"
-import Video from "../assets/bg-video.mp4"
+import React, { useEffect, useState } from "react"
 import styled from "@emotion/styled"
 import { MdKeyboardArrowRight, MdArrowForward } from "react-icons/md"
 import { Link } from "gatsby"
+import NightVideo from "../assets/bg-video.mp4"
+import DayVideo from "../assets/bg-day.mp4"
 
 const HeroContainer = styled.div`
   background: var(--color-dark);
@@ -109,15 +110,22 @@ const ArrowRight = styled(MdKeyboardArrowRight)`
 
 const Hero = () => {
   const [hover, setHover] = useState(false)
+  const [initialBgVideo, setInitialBgVideo] = useState()
 
   const onHover = () => {
     setHover(!hover)
   }
 
+  useEffect(() => {
+    // TODO: provide this video from a context
+    const videoSrc = document.body.classList.contains('light') ? DayVideo : NightVideo
+    setInitialBgVideo(videoSrc)
+  }, [])
+
   return (
     <HeroContainer id="hero">
       <HeroBg>
-        <VideoBg autoPlay loop muted src={Video} type="video/mp4" />
+        <VideoBg id={'bgVideo'} autoPlay loop muted src={initialBgVideo} type="video/mp4" />
       </HeroBg>
       <HeroContent>
         <HeroH1>Francisco</HeroH1>

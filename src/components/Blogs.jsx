@@ -5,7 +5,7 @@ import Blog from "./Blog"
 
 const Blogs = ({ blogs, title, showLink, bg }) => {
   return (
-    <section className={`section ${bg && "bg-main"}`}>
+    <section className="section">
       <Title title={title} />
       <div className="section-center blogs-center">
         {blogs.map(blog => {

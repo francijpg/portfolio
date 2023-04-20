@@ -29,7 +29,7 @@ const Jobs = (bg) => {
   const { company, position, date, desc } = jobs[value]
 
   return (
-    <section className={`section ${bg && "bg-main"}`}>
+    <section className="section">
       <Title title="experience" />
       <div className="jobs-center">
         <div className="btn-container">

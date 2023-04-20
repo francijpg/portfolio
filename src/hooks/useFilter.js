@@ -44,8 +44,6 @@ const useFilter = () => {
 
   const categories = data.allStrapiCategories.nodes
 
-  // console.log(categories)
-
   const CategoryFilter = () => (
     <Form>
       <Select onChange={e => setCategory(e.target.value)} value={category}>

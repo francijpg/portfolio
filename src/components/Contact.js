@@ -47,7 +47,6 @@ const Contact = ({ title }) => {
         .catch(error => {
           actions.setSubmitting(false)
           handleServerResponse(false, errorMsg, "alert-error")
-          // console.log(error.response.data.error)
           setTimeout(() => {
             setServerState(false)
           }, 3000)

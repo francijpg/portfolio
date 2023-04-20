@@ -10,6 +10,7 @@ module.exports = {
     twitterUsername: "@francijpg",
     image: "/twitter-img.png",
     siteUrl: "https://www.francijpg.com",
+    keywords: 'technology, software, engineering, typescript, react, aws'
   },
   plugins: [
     `gatsby-transformer-sharp`,
@@ -18,6 +19,7 @@ module.exports = {
     `gatsby-plugin-emotion`,
     `gatsby-plugin-fontawesome-css`,
     `gatsby-plugin-sitemap`,
+    `gatsby-plugin-dark-mode`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -29,7 +31,7 @@ module.exports = {
       resolve: `gatsby-source-strapi`,
       options: {
         apiURL: process.env.GATSBY_STRAPI || "http://localhost:1337",
-        queryLimit: 1000, // Default to 100
+        queryLimit: 1000, // 100 is by default
         contentTypes: [`jobs`, `projects`, `certificates`, `categories`, `blogs`],
         singleTypes: [`about`],
       },

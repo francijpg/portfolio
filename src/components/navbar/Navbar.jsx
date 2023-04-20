@@ -10,6 +10,7 @@ import {
   BarsBtn,
   MenuLinks,
 } from "./navbar.style"
+import ThemeToggler from "../ThemeToggler"
 
 const Navbar = ({ toggleSidebar, isScrolled }) => {
   return (
@@ -20,6 +21,7 @@ const Navbar = ({ toggleSidebar, isScrolled }) => {
             Francisc
             <LogoIconBtn className="fas fa-spin" />
           </LogoBtn>
+          <ThemeToggler />
         </Left>
         <Right>
           <BarsBtn type="button" aria-label="fabars" onClick={toggleSidebar} />
