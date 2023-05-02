@@ -8,7 +8,7 @@ const contact = () => {
     <Layout>
       <SEO title="Contact" />
       <section className="contact-page">
-        <Contact title="contact" />
+        <Contact title="Contact" />
       </section>
     </Layout>
   )

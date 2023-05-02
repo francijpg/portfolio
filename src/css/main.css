@@ -68,7 +68,6 @@ h2,
 h3,
 h4 {
   letter-spacing: var(--spacing);
-  text-transform: capitalize;
   line-height: 1.25;
   margin-bottom: 0.75rem;
   font-family: var(--ff-primary);
@@ -156,6 +155,12 @@ body.dark .error-page h1 {
 body.dark .project-info {
   background-color: var(--clr-grey-9);
 }
+body.dark table th {
+  border: 0.1rem solid var(--color-white);
+}
+body.dark table td {
+  border: 0.1rem solid var(--color-white);
+}
 
 @media screen and (min-width: 800px) {
   h1 {
@@ -195,7 +200,7 @@ table thead {
 table,
 th,
 td {
-  border: 0.1rem solid black;
+  border: 0.1rem solid var(--color-dark);
 }
 th,
 td {
@@ -614,7 +619,6 @@ Jobs
   color: var(--bg-dark);
   background: transparent;
   border-color: transparent;
-  text-transform: capitalize;
   font-size: 1.25rem;
   letter-spacing: var(--spacing);
   margin: 0 0.5rem;

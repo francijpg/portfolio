@@ -30,7 +30,7 @@ const Jobs = (bg) => {
 
   return (
     <section className="section">
-      <Title title="experience" />
+      <Title title="Experience" />
       <div className="jobs-center">
         <div className="btn-container">
           {jobs.map((item, index) => {

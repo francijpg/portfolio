@@ -4,13 +4,13 @@ export default [
   {
     id: 1,
     icon: <FaCode className="service-icon" />,
-    title: "web development",
+    title: "Web Development",
     text: `Development of web applications with the latest technology, automation of services and optimization of existing platforms.`,
   },
   {
     id: 2,
     icon: <FaAndroid className="service-icon" />,
-    title: "mobile application development ",
+    title: "Mobile Application Development ",
     text: `Mobile application development for iOS and Android devices.`,
   },
 ]
