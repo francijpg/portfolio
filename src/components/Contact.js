@@ -59,7 +59,7 @@ const Contact = ({ title }) => {
       <Title title={title} />
       <div className="content-center">
         <article className="contact-form">
-          <h3>get in touch</h3>
+          <h3>Get in touch</h3>
           <form onSubmit={formik.handleSubmit}>
             <div className="form-group">
               <input

@@ -13,7 +13,7 @@ const ProjectsPage = ({
     <Layout>
       <SEO title="Projects" />
       <section className="projects-page">
-        <Projects projects={projects} title="all projects" />
+        <Projects projects={projects} title="All Projects" />
       </section>
     </Layout>
   )

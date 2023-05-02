@@ -13,7 +13,7 @@ const BlogPage = ({
     <Layout>
       <SEO title="Blog" />
       <section className="blog-page">
-        <Blogs blogs={blogs} title="blog" />
+        <Blogs blogs={blogs} title="Blog" />
       </section>
     </Layout>
   )
