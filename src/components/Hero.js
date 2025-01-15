@@ -129,7 +129,7 @@ const Hero = () => {
       </HeroBg>
       <HeroContent>
         <HeroH1>Francisco</HeroH1>
-        <HeroP>Software Engineer & Entrepreneur</HeroP>
+        <HeroP>Software Engineer & Tech Lead</HeroP>
         <HeroBtnWrapper>
           <Link to="/about" className="btn" onMouseEnter={onHover} onMouseLeave={onHover}>
             About {hover ? <ArrowForward /> : <ArrowRight />}

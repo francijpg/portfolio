@@ -26,7 +26,7 @@ const About = () => {
 
   const sequence = [
     {
-      content: `I'm Francisco, a software engineer and entrepreneur who enjoys learning and making things happen with the help of technology...`,
+      content: `I'm Francisco, a software engineer who likes to learn and make things happen with the help of technology...`,
     },
   ]
 
