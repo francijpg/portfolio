@@ -110,22 +110,51 @@ const ArrowRight = styled(MdKeyboardArrowRight)`
 
 const Hero = () => {
   const [hover, setHover] = useState(false)
-  const [initialBgVideo, setInitialBgVideo] = useState()
+  const [initialBgVideo, setInitialBgVideo] = useState(null)
 
   const onHover = () => {
     setHover(!hover)
   }
 
   useEffect(() => {
-    // TODO: provide this video from a context
-    const videoSrc = document.body.classList.contains('light') ? DayVideo : NightVideo
-    setInitialBgVideo(videoSrc)
+    const videoSrc = document.body.classList.contains("light") ? DayVideo : NightVideo
+    const isSmallScreen = window.matchMedia("(max-width: 768px)").matches
+
+    if (!isSmallScreen) {
+      setInitialBgVideo(videoSrc)
+      return undefined
+    }
+
+    if ("requestIdleCallback" in window) {
+      const idleCallbackId = window.requestIdleCallback(() => {
+        setInitialBgVideo(videoSrc)
+      }, { timeout: 1500 })
+
+      return () => window.cancelIdleCallback(idleCallbackId)
+    }
+
+    const timeoutId = window.setTimeout(() => {
+      setInitialBgVideo(videoSrc)
+    }, 800)
+
+    return () => window.clearTimeout(timeoutId)
   }, [])
 
   return (
     <HeroContainer id="hero">
       <HeroBg>
-        <VideoBg id={'bgVideo'} autoPlay loop muted src={initialBgVideo} type="video/mp4" />
+        {initialBgVideo && (
+          <VideoBg
+            id="bgVideo"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="none"
+            src={initialBgVideo}
+            type="video/mp4"
+          />
+        )}
       </HeroBg>
       <HeroContent>
         <HeroH1>Francisco</HeroH1>

@@ -3,5 +3,20 @@
  *
  * See: https://www.gatsbyjs.com/docs/ssr-apis/
  */
+import React from "react"
 
-// You can delete this file if you're not using it
+export const onRenderBody = ({ setHeadComponents }) => {
+  setHeadComponents([
+    <link
+      key="preconnect-fonts-googleapis"
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />,
+    <link
+      key="preconnect-fonts-gstatic"
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossOrigin="anonymous"
+    />,
+  ])
+}

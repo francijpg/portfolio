@@ -6,7 +6,54 @@ import "react-toggle/style.css"
 import NightVideo from "../assets/bg-video.mp4"
 import DayVideo from "../assets/bg-day.mp4"
 
+const getCurrentTheme = fallbackTheme => {
+  if (typeof document === "undefined") {
+    return fallbackTheme || "light"
+  }
+
+  if (document.body.classList.contains("dark")) {
+    return "dark"
+  }
+
+  if (document.body.classList.contains("light")) {
+    return "light"
+  }
+
+  return fallbackTheme || "light"
+}
+
 const ThemeToggleControl = ({ theme, toggleTheme, mounted }) => {
+  const [resolvedTheme, setResolvedTheme] = useState(theme || "light")
+
+  useEffect(() => {
+    if (!mounted) {
+      return
+    }
+
+    const nextTheme = getCurrentTheme(theme)
+
+    setResolvedTheme(currentTheme =>
+      currentTheme === nextTheme ? currentTheme : nextTheme
+    )
+  }, [mounted, theme])
+
+  useEffect(() => {
+    if (!mounted || typeof MutationObserver === "undefined") {
+      return
+    }
+
+    const observer = new MutationObserver(() => {
+      setResolvedTheme(getCurrentTheme(theme))
+    })
+
+    observer.observe(document.body, {
+      attributes: true,
+      attributeFilter: ["class"],
+    })
+
+    return () => observer.disconnect()
+  }, [mounted, theme])
+
   useEffect(() => {
     if (!mounted || window.location.pathname !== '/') {
       return
@@ -18,8 +65,8 @@ const ThemeToggleControl = ({ theme, toggleTheme, mounted }) => {
       return
     }
 
-    videoRef.src = theme === 'light' ? DayVideo : NightVideo
-  }, [mounted, theme])
+    videoRef.src = resolvedTheme === 'light' ? DayVideo : NightVideo
+  }, [mounted, resolvedTheme])
 
   if (!mounted) {
     return null
@@ -27,8 +74,13 @@ const ThemeToggleControl = ({ theme, toggleTheme, mounted }) => {
 
   return (
     <Toggle
-      checked={theme === 'dark'}
-      onChange={e => toggleTheme(e.target.checked ? 'dark' : 'light')}
+      key={resolvedTheme}
+      checked={resolvedTheme === 'dark'}
+      onChange={e => {
+        const nextTheme = e.target.checked ? 'dark' : 'light'
+        setResolvedTheme(nextTheme)
+        toggleTheme(nextTheme)
+      }}
       className='theme-toggle'
       icons={{
         checked: <FaMoon className="dm-icon-toggle" />,
