@@ -5,6 +5,29 @@ import { Link } from "gatsby"
 import NightVideo from "../assets/bg-video.mp4"
 import DayVideo from "../assets/bg-day.mp4"
 
+const getCurrentTheme = () => {
+  if (typeof document === "undefined") {
+    return "dark"
+  }
+
+  if (document.body.classList.contains("light")) {
+    return "light"
+  }
+
+  return "dark"
+}
+
+const heroBackgrounds = {
+  dark: `
+    radial-gradient(circle at 50% 18%, rgba(71, 112, 173, 0.38), transparent 28%),
+    linear-gradient(180deg, #0f2d54 0%, #0b1730 42%, #040b16 100%)
+  `,
+  light: `
+    radial-gradient(circle at 50% 16%, rgba(255, 243, 210, 0.75), transparent 30%),
+    linear-gradient(180deg, #c8c9c4 0%, #8f8a79 34%, #2b3426 100%)
+  `,
+}
+
 const HeroContainer = styled.div`
   background: var(--color-dark);
   display: flex;
@@ -41,6 +64,7 @@ const HeroBg = styled.div`
   width: 100%;
   height: 100%;
   overflow: hidden;
+  background: ${({ themeMode }) => heroBackgrounds[themeMode] || heroBackgrounds.dark};
 `
 
 const VideoBg = styled.video`
@@ -111,38 +135,47 @@ const ArrowRight = styled(MdKeyboardArrowRight)`
 const Hero = () => {
   const [hover, setHover] = useState(false)
   const [initialBgVideo, setInitialBgVideo] = useState(null)
+  const [themeMode, setThemeMode] = useState("dark")
 
   const onHover = () => {
     setHover(!hover)
   }
 
   useEffect(() => {
-    const videoSrc = document.body.classList.contains("light") ? DayVideo : NightVideo
+    const nextTheme = getCurrentTheme()
+    const videoSrc = nextTheme === "light" ? DayVideo : NightVideo
     const isSmallScreen = window.matchMedia("(max-width: 768px)").matches
+
+    setThemeMode(nextTheme)
+
+    const observer = new MutationObserver(() => {
+      const updatedTheme = getCurrentTheme()
+      setThemeMode(updatedTheme)
+    })
+
+    observer.observe(document.body, {
+      attributes: true,
+      attributeFilter: ["class"],
+    })
 
     if (!isSmallScreen) {
       setInitialBgVideo(videoSrc)
-      return undefined
-    }
-
-    if ("requestIdleCallback" in window) {
-      const idleCallbackId = window.requestIdleCallback(() => {
-        setInitialBgVideo(videoSrc)
-      }, { timeout: 1500 })
-
-      return () => window.cancelIdleCallback(idleCallbackId)
+      return () => observer.disconnect()
     }
 
     const timeoutId = window.setTimeout(() => {
       setInitialBgVideo(videoSrc)
-    }, 800)
+    }, 180)
 
-    return () => window.clearTimeout(timeoutId)
+    return () => {
+      observer.disconnect()
+      window.clearTimeout(timeoutId)
+    }
   }, [])
 
   return (
     <HeroContainer id="hero">
-      <HeroBg>
+      <HeroBg themeMode={themeMode}>
         {initialBgVideo && (
           <VideoBg
             id="bgVideo"
@@ -150,9 +183,10 @@ const Hero = () => {
             loop
             muted
             playsInline
-            preload="none"
+            preload="metadata"
             src={initialBgVideo}
             type="video/mp4"
+            aria-hidden="true"
           />
         )}
       </HeroBg>

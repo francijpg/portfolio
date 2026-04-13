@@ -12,7 +12,8 @@ const About = ({
     about: { nodes },
   },
 }) => {
-  const { info, info2, stack, title, image } = nodes[0]
+  const { seniorityInfo, impactInfo, strategicInfo, workInfo, aspirationInfo, contactInfo,
+    stack, title, image } = nodes[0]
 
   return (
     <Layout>
@@ -22,13 +23,17 @@ const About = ({
         <div className="section-center about-center">
           <Image fluid={image.childImageSharp.fluid} className="about-img" />
           <article className="about-text">
-            <p>{info}</p>
+            <p>{seniorityInfo}</p>
+            <p>{impactInfo}</p>
+            <p>{strategicInfo}</p>
+            <p>{workInfo}</p>
+            <p>{aspirationInfo}</p>
             <div className="about-stack">
               {stack.map(item => {
                 return <span key={item.id}>{item.title}</span>
               })}
             </div>
-            <p className="mt-2">{info2}</p>
+            <p className="mt-2">{contactInfo}</p>
             <Link to="/contact" className="btn about-contact">
               contact me
             </Link>
@@ -49,8 +54,12 @@ export const query = graphql`
           title
         }
         title
-        info
-        info2
+        seniorityInfo
+        impactInfo
+        strategicInfo
+        workInfo
+        aspirationInfo
+        contactInfo
         image {
           childImageSharp {
             fluid {
