@@ -3,8 +3,6 @@ import { ThemeToggler } from 'gatsby-plugin-dark-mode'
 import Toggle from "react-toggle"
 import { FaSun, FaMoon } from "react-icons/fa"
 import "react-toggle/style.css"
-import NightVideo from "../assets/bg-video.mp4"
-import DayVideo from "../assets/bg-day.mp4"
 
 const getCurrentTheme = fallbackTheme => {
   if (typeof document === "undefined") {
@@ -54,20 +52,6 @@ const ThemeToggleControl = ({ theme, toggleTheme, mounted }) => {
     return () => observer.disconnect()
   }, [mounted, theme])
 
-  useEffect(() => {
-    if (!mounted || window.location.pathname !== '/') {
-      return
-    }
-
-    const videoRef = document.getElementById('bgVideo')
-
-    if (!videoRef) {
-      return
-    }
-
-    videoRef.src = resolvedTheme === 'light' ? DayVideo : NightVideo
-  }, [mounted, resolvedTheme])
-
   if (!mounted) {
     return null
   }
@@ -82,6 +66,7 @@ const ThemeToggleControl = ({ theme, toggleTheme, mounted }) => {
         toggleTheme(nextTheme)
       }}
       className='theme-toggle'
+      aria-label={`Activate ${resolvedTheme === 'dark' ? 'light' : 'dark'} mode`}
       icons={{
         checked: <FaMoon className="dm-icon-toggle" />,
         unchecked: <FaSun className="dm-icon-toggle" />

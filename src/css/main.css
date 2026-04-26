@@ -1172,6 +1172,15 @@ Contact Page
 .form-group {
   padding: 1rem 1.5rem;
 }
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--color-white);
+  font-family: var(--ff-primary);
+  font-size: 0.9rem;
+  letter-spacing: var(--spacing);
+  text-align: left;
+}
 .form-group textarea {
   resize: none;
 }
