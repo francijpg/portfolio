@@ -62,7 +62,11 @@ const Contact = ({ title }) => {
           <h3>Get in touch</h3>
           <form onSubmit={formik.handleSubmit}>
             <div className="form-group">
+              <label className="form-label" htmlFor="contact-name">
+                Name
+              </label>
               <input
+                id="contact-name"
                 type="text"
                 name="name"
                 placeholder="Your name"
@@ -70,15 +74,25 @@ const Contact = ({ title }) => {
                 value={formik.values.name}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
+                aria-invalid={Boolean(formik.touched.name && formik.errors.name)}
+                aria-describedby={formik.touched.name && formik.errors.name ? "contact-name-error" : undefined}
               />
 
               {formik.touched.name && formik.errors.name ? (
-                <div className="contact-form-error">
+                <div
+                  id="contact-name-error"
+                  className="contact-form-error"
+                  role="alert"
+                >
                   <p>{formik.errors.name} </p>
                 </div>
               ) : null}
 
+              <label className="form-label" htmlFor="contact-email">
+                Email
+              </label>
               <input
+                id="contact-email"
                 type="email"
                 placeholder="Your email"
                 name="email"
@@ -86,15 +100,25 @@ const Contact = ({ title }) => {
                 value={formik.values.email}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
+                aria-invalid={Boolean(formik.touched.email && formik.errors.email)}
+                aria-describedby={formik.touched.email && formik.errors.email ? "contact-email-error" : undefined}
               />
 
               {formik.touched.email && formik.errors.email ? (
-                <div className="contact-form-error">
+                <div
+                  id="contact-email-error"
+                  className="contact-form-error"
+                  role="alert"
+                >
                   <p>{formik.errors.email} </p>
                 </div>
               ) : null}
 
+              <label className="form-label" htmlFor="contact-message">
+                Message
+              </label>
               <textarea
+                id="contact-message"
                 name="message"
                 rows="10"
                 placeholder="Your message"
@@ -102,10 +126,20 @@ const Contact = ({ title }) => {
                 value={formik.values.message}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
+                aria-invalid={Boolean(formik.touched.message && formik.errors.message)}
+                aria-describedby={
+                  formik.touched.message && formik.errors.message
+                    ? "contact-message-error"
+                    : undefined
+                }
               ></textarea>
 
               {formik.touched.message && formik.errors.message ? (
-                <div className="contact-form-error">
+                <div
+                  id="contact-message-error"
+                  className="contact-form-error"
+                  role="alert"
+                >
                   <p>{formik.errors.message} </p>
                 </div>
               ) : null}

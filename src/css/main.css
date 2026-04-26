@@ -17,9 +17,10 @@ Variables
   --color-white: #fff;
   --color-dark: #000;
   --color-blue: #245ddd;
+  --color-blue-contrast: #183f99;
   --clr-grey-1: hsl(209, 61%, 16%);
   --clr-grey-3: hsl(209, 34%, 30%);
-  --clr-grey-5: hsl(210, 22%, 49%);
+  --clr-grey-5: hsl(210, 22%, 38%);
   --clr-grey-9: hsl(212, 33%, 89%);
   --clr-grey-10: hsl(210, 36%, 96%);
   --transition: all 0.1s linear;
@@ -722,7 +723,7 @@ Projects
 .project-number {
   display: inline-block;
   font-size: 1.25rem;
-  color: var(--color-blue);
+  color: var(--color-blue-contrast);
   margin-bottom: 0.75rem;
 }
 .project-info h3 {

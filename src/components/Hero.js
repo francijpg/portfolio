@@ -73,6 +73,8 @@ const VideoBg = styled.video`
   -o-object-fit: cover;
   object-fit: cover;
   background: #232a34;
+  opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
+  transition: opacity 180ms ease;
 `
 
 const HeroContent = styled.div`
@@ -134,8 +136,11 @@ const ArrowRight = styled(MdKeyboardArrowRight)`
 
 const Hero = () => {
   const [hover, setHover] = useState(false)
-  const [initialBgVideo, setInitialBgVideo] = useState(null)
   const [themeMode, setThemeMode] = useState("dark")
+  const [shouldRenderVideo, setShouldRenderVideo] = useState(false)
+  const [activeVideoSrc, setActiveVideoSrc] = useState(null)
+  const [isVideoVisible, setIsVideoVisible] = useState(false)
+  const [readyVideos, setReadyVideos] = useState({})
 
   const onHover = () => {
     setHover(!hover)
@@ -143,8 +148,8 @@ const Hero = () => {
 
   useEffect(() => {
     const nextTheme = getCurrentTheme()
-    const videoSrc = nextTheme === "light" ? DayVideo : NightVideo
     const isSmallScreen = window.matchMedia("(max-width: 768px)").matches
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
 
     setThemeMode(nextTheme)
 
@@ -158,25 +163,88 @@ const Hero = () => {
       attributeFilter: ["class"],
     })
 
-    if (!isSmallScreen) {
-      setInitialBgVideo(videoSrc)
+    if (isSmallScreen || prefersReducedMotion) {
       return () => observer.disconnect()
     }
 
+    let idleCallbackId
     const timeoutId = window.setTimeout(() => {
-      setInitialBgVideo(videoSrc)
-    }, 180)
+      setShouldRenderVideo(true)
+    }, 1200)
+
+    if ("requestIdleCallback" in window) {
+      idleCallbackId = window.requestIdleCallback(() => {
+        setShouldRenderVideo(true)
+      })
+    }
 
     return () => {
       observer.disconnect()
+      if (idleCallbackId) {
+        window.cancelIdleCallback(idleCallbackId)
+      }
       window.clearTimeout(timeoutId)
     }
   }, [])
 
+  const videoSrc = themeMode === "light" ? DayVideo : NightVideo
+
+  useEffect(() => {
+    if (!shouldRenderVideo || typeof document === "undefined") {
+      return undefined
+    }
+
+    const preloaders = [NightVideo, DayVideo].map(src => {
+      const video = document.createElement("video")
+      const markAsReady = () => {
+        setReadyVideos(currentReadyVideos => {
+          if (currentReadyVideos[src]) {
+            return currentReadyVideos
+          }
+
+          return {
+            ...currentReadyVideos,
+            [src]: true,
+          }
+        })
+      }
+
+      video.preload = "metadata"
+      video.muted = true
+      video.playsInline = true
+      video.addEventListener("loadeddata", markAsReady, { once: true })
+      video.src = src
+      video.load()
+
+      return { video, markAsReady }
+    })
+
+    return () => {
+      preloaders.forEach(({ video, markAsReady }) => {
+        video.removeEventListener("loadeddata", markAsReady)
+        video.src = ""
+      })
+    }
+  }, [shouldRenderVideo])
+
+  useEffect(() => {
+    if (!shouldRenderVideo) {
+      return
+    }
+
+    if (readyVideos[videoSrc]) {
+      setActiveVideoSrc(videoSrc)
+      setIsVideoVisible(true)
+      return
+    }
+
+    setIsVideoVisible(false)
+  }, [readyVideos, shouldRenderVideo, videoSrc])
+
   return (
     <HeroContainer id="hero">
       <HeroBg themeMode={themeMode}>
-        {initialBgVideo && (
+        {shouldRenderVideo && activeVideoSrc && (
           <VideoBg
             id="bgVideo"
             autoPlay
@@ -184,9 +252,10 @@ const Hero = () => {
             muted
             playsInline
             preload="metadata"
-            src={initialBgVideo}
+            src={activeVideoSrc}
             type="video/mp4"
             aria-hidden="true"
+            isVisible={isVideoVisible}
           />
         )}
       </HeroBg>
