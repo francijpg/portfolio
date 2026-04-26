@@ -31,7 +31,7 @@ const Footer = () => {
           <div className="footer-row-wrap">
             <button className="footer-row-logo" onClick={toggleHome}>
               Francisc
-              <FaAtom className="fas fa-spin"></FaAtom>
+              <FaAtom className="logo-spin"></FaAtom>
             </button>
             <div className="footer-row-rights">
               <h4>

@@ -19,7 +19,7 @@ const Navbar = ({ toggleSidebar, isScrolled }) => {
         <Left>
           <LogoBtn to="/">
             Francisc
-            <LogoIconBtn className="fas fa-spin" />
+            <LogoIconBtn className="logo-spin" />
           </LogoBtn>
           <ThemeToggler />
         </Left>

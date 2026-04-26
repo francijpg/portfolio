@@ -3,7 +3,37 @@
 Fonts
 ===============
 */
-/* @import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@400;700&family=Open+Sans&display=swap'); */
+@font-face {
+  font-family: "Encode Sans Expanded";
+  src: url("../fonts/encode-sans-expanded-400-latin.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Encode Sans Expanded";
+  src: url("../fonts/encode-sans-expanded-700-latin.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("../fonts/open-sans-400-latin.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("../fonts/open-sans-700-latin.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
 
 /*
 =============== 
@@ -12,8 +42,8 @@ Variables
 */
 
 :root {
-  --ff-primary: "Encode Sans Expanded", sans-serif;
-  --ff-secondary: "Open Sans", sans-serif;
+  --ff-primary: "Encode Sans Expanded", "Segoe UI", Helvetica, Arial, sans-serif;
+  --ff-secondary: "Open Sans", "Segoe UI", Helvetica, Arial, sans-serif;
   --color-white: #fff;
   --color-dark: #000;
   --color-blue: #245ddd;
@@ -49,6 +79,21 @@ Global Styles
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+.logo-spin {
+  display: inline-block;
+  transform-origin: center;
+  animation: logo-spin 2s linear infinite;
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 body {
   font-family: var(--ff-secondary);

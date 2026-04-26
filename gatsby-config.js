@@ -17,7 +17,6 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-emotion`,
-    `gatsby-plugin-fontawesome-css`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-dark-mode`,
     {
@@ -40,14 +39,6 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         icon: `src/assets/favicon.png`,
-      },
-    },
-    {
-      resolve: "gatsby-plugin-web-font-loader",
-      options: {
-        google: {
-          families: ["Encode Sans Expanded:400,700", "Open Sans"],
-        },
       },
     },
     {
