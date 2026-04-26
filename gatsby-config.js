@@ -9,7 +9,7 @@ module.exports = {
     author: `@francijpg`,
     twitterUsername: "@francijpg",
     image: "/twitter-img.png",
-    siteUrl: "https://www.francijpg.com",
+    siteUrl: "https://francijpg.com",
     keywords: 'technology, software, engineering, typescript, react, aws'
   },
   plugins: [
