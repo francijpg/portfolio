@@ -20,12 +20,22 @@ const Project = ({ description, title, github, stack, url, image, index }) => {
         </div>
         <div className="project-links">
           {github && (
-            <a href={github} aria-label="github-link" target="_blank" rel="noopener noreferrer">
+            <a
+              href={github}
+              aria-label={`View ${title} source code on GitHub`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <FaGithubSquare className="project-icon" />
             </a>
           )}
           {url && (
-            <a href={url} aria-label="site-link" target="_blank" rel="noopener noreferrer">
+            <a
+              href={url}
+              aria-label={`Visit ${title} live site`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <FaShareSquare className="project-icon" />
             </a>
           )}
