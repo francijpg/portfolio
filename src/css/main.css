@@ -910,8 +910,11 @@ Blog
 .blog-card {
   padding: 1.5rem 1rem;
 }
-.blog-card h4 {
+.blog-card h3 {
   color: var(--clr-grey-1);
+  font-size: 1rem;
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
 }
 .blog-card p {
   color: var(--clr-grey-3);
