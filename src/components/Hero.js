@@ -163,14 +163,15 @@ const Hero = () => {
       attributeFilter: ["class"],
     })
 
-    if (isSmallScreen || prefersReducedMotion) {
+    if (prefersReducedMotion) {
       return () => observer.disconnect()
     }
 
     let idleCallbackId
+    const renderDelay = isSmallScreen ? 1800 : 1200
     const timeoutId = window.setTimeout(() => {
       setShouldRenderVideo(true)
-    }, 1200)
+    }, renderDelay)
 
     if ("requestIdleCallback" in window) {
       idleCallbackId = window.requestIdleCallback(() => {
