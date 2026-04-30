@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import styled from "@emotion/styled"
 import { MdKeyboardArrowRight, MdArrowForward } from "react-icons/md"
 import { Link } from "gatsby"
-import NightVideo from "../assets/bg-video.mp4"
+import NightVideo from "../assets/bg-night.mp4"
 import DayVideo from "../assets/bg-day.mp4"
 
 const getCurrentTheme = () => {
