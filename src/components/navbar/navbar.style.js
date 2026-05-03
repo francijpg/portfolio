@@ -39,7 +39,7 @@ export const Right = styled.div`
   align-items: center;
 `
 
-export const MenuLinks = styled.ul`
+export const MenuLinks = styled.nav`
   ul {
     display: flex;
     justify-content: flex-end;

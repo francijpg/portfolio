@@ -167,15 +167,34 @@ const Hero = () => {
       return () => observer.disconnect()
     }
 
-    let idleCallbackId
-    const renderDelay = isSmallScreen ? 1800 : 1200
-    const timeoutId = window.setTimeout(() => {
+    const enableVideo = () => {
       setShouldRenderVideo(true)
-    }, renderDelay)
+    }
+
+    if (isSmallScreen) {
+      const timeoutId = window.setTimeout(() => {
+        if (document.readyState === "complete") {
+          enableVideo()
+        } else {
+          window.addEventListener("load", enableVideo, { once: true })
+        }
+      }, 2200)
+
+      return () => {
+        observer.disconnect()
+        window.clearTimeout(timeoutId)
+        window.removeEventListener("load", enableVideo)
+      }
+    }
+
+    let idleCallbackId
+    const timeoutId = window.setTimeout(() => {
+      enableVideo()
+    }, 1200)
 
     if ("requestIdleCallback" in window) {
       idleCallbackId = window.requestIdleCallback(() => {
-        setShouldRenderVideo(true)
+        enableVideo()
       })
     }
 

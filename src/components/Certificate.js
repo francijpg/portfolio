@@ -7,7 +7,7 @@ const Certificate = ({ title, year, image, institution }) => {
   const [showModal, setShowModal] = useState(false)
 
   return (
-    <>
+    <li>
       <button className="certificate-card" onClick={() => setShowModal(true)}>
         {image && (
           <Image
@@ -30,7 +30,7 @@ const Certificate = ({ title, year, image, institution }) => {
         year={year}
         image={image}
       />
-    </>
+    </li>
   )
 }
 

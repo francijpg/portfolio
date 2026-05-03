@@ -1036,7 +1036,7 @@ Footer
   display: block;
   text-align: center;
   text-transform: capitalize;
-  color: var(--color-blue);
+  color: var(--color-blue-contrast);
   font-weight: bold;
   margin-bottom: 0.5rem;
 }
@@ -1095,7 +1095,7 @@ Footer
   font-weight: normal;
 }
 .footer-gatsby {
-  color: var(--color-blue);
+  color: var(--color-blue-contrast);
   font-weight: bold;
 }
 .footer .social-link {

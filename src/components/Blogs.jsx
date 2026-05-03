@@ -8,8 +8,8 @@ const Blogs = ({ blogs, title, showLink, bg }) => {
     <section className="section">
       <Title title={title} />
       <div className="section-center blogs-center">
-        {blogs.map(blog => {
-          return <Blog key={blog.id} {...blog} />
+        {blogs.map((blog, index) => {
+          return <Blog key={blog.id} {...blog} prioritizeImage={index === 0} />
         })}
       </div>
       {showLink && (

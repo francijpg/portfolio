@@ -40,7 +40,7 @@ const Layout = ({ scrollEffect = false, children }) => {
     <>
       <Navbar toggleSidebar={toggleSidebar} isScrolled={isScrolled} />
       <Sidebar isOpen={isOpen} toggleSidebar={toggleSidebar} />
-      {children}
+      <main>{children}</main>
       <Footer />
     </>
   )
