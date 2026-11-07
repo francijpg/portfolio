@@ -60,5 +60,13 @@
   },
   "bugs": {
     "url": "https://github.com/francijpg/portfolio/issues"
+  },
+  "overrides": {
+    "sharp": "0.29.3",
+    "gatsby-recipes": {
+      "remark-mdx": "2.0.0-next.4",
+      "remark-mdxjs": "2.0.0-next.4"
+    },
+    "term-size": "2.2.1"
   }
 }
